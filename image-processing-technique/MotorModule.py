@@ -11,23 +11,23 @@ GPIO.setwarnings(False)
 
 
 class Motor:
-    def __init__(self, EnA, In1A, In2A, EnB, In1B, In2B):
-        self.EnA = EnA
-        self.In1A = In1A
-        self.In2A = In2A
-        self.EnB = EnB
-        self.In1B = In1B
-        self.In2B = In2B
+    def __init__(self, enable_right, right_forward, right_backward, enable_left, left_forward, left_backward):
+        self.enable_right = enable_right
+        self.right_forward = right_forward
+        self.right_backward = right_backward
+        self.enable_left = enable_left
+        self.left_forward = left_forward
+        self.left_backward = left_backward
 
-        GPIO.setup(self.EnA, GPIO.OUT)
-        GPIO.setup(self.In1A, GPIO.OUT)
-        GPIO.setup(self.In2A, GPIO.OUT)
-        GPIO.setup(self.EnB, GPIO.OUT)
-        GPIO.setup(self.En1B, GPIO.OUT)
-        GPIO.setup(self.En2B, GPIO.OUT)
+        GPIO.setup(self.enable_right, GPIO.OUT)
+        GPIO.setup(self.right_forward, GPIO.OUT)
+        GPIO.setup(self.right_backward, GPIO.OUT)
+        GPIO.setup(self.enable_left, GPIO.OUT)
+        GPIO.setup(self.left_forward, GPIO.OUT)
+        GPIO.setup(self.left_backward, GPIO.OUT)
 
-        self.pwmA = GPIO.PWM(self.EnA, 100)
-        self.pwmB = GPIO.PWM(self.EnB, 100)
+        self.pwmA = GPIO.PWM(self.enable_right, 100)
+        self.pwmB = GPIO.PWM(self.enable_left, 100)
 
         self.pwmA.start(0)
         self.pwmB.start(0)
@@ -48,17 +48,17 @@ class Motor:
         self.pwmB.ChangeDutyCycle(abs(right_speed))
 
         if left_speed > 0:
-            GPIO.output(self.In1A, GPIO.HIGH)
-            GPIO.output(self.In2A, GPIO.LOW)
+            GPIO.output(self.right_forward, GPIO.HIGH)
+            GPIO.output(self.right_backward, GPIO.LOW)
         else:
-            GPIO.output(self.In1A, GPIO.LOW)
-            GPIO.output(self.In2A, GPIO.HIGH)
+            GPIO.output(self.right_forward, GPIO.LOW)
+            GPIO.output(self.right_backward, GPIO.HIGH)
         if right_speed > 0:
-            GPIO.output(self.In1B, GPIO.HIGH)
-            GPIO.output(self.In2B, GPIO.LOW)
+            GPIO.output(self.left_forward, GPIO.HIGH)
+            GPIO.output(self.left_backward, GPIO.LOW)
         else:
-            GPIO.output(self.In1B, GPIO.LOW)
-            GPIO.output(self.In2B, GPIO.HIGH)
+            GPIO.output(self.left_forward, GPIO.LOW)
+            GPIO.output(self.left_backward, GPIO.HIGH)
 
         sleep(t)
 

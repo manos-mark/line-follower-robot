@@ -4,7 +4,7 @@ from .WebcamModule import get_image
 import cv2 as cv
 
 ##################################
-motor = Motor(2, 3, 4, 17, 22, 27)
+motor = Motor(5, 22, 23, 6, 24, 25)
 ##################################
 
 SPEED = 0.20
