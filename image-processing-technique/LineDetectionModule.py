@@ -5,6 +5,8 @@ import utils
 curve_list = []
 AVERAGE_VALUE = 10
 
+initial_trackbar_values = [177, 74, 153, 240]
+utils.initialize_trackbars(initial_trackbar_values)
 
 def get_line_curve(image, display=2):
     """
@@ -75,8 +77,6 @@ def get_line_curve(image, display=2):
 if __name__ == '__main__':
     frame_counter = 0
     cap = cv.VideoCapture(0)
-    initial_trackbar_values = [87, 74, 0, 240]
-    utils.initialize_trackbars(initial_trackbar_values)
 
     while True:
         frame_counter += 1
@@ -85,7 +85,7 @@ if __name__ == '__main__':
             frame_counter = 0
 
         success, frame = cap.read()
-        frame = cv.resize(frame, (480, 680))
+        frame = cv.resize(frame, (480, 240))
         # Temp debug
         # frame = cv.transpose(frame)
 
@@ -94,5 +94,5 @@ if __name__ == '__main__':
         if cv.waitKey(1) & 0xFF == ord('q'):
             break
 
-cap.release()
-cv.destroyAllWindows()
+    cap.release()
+    cv.destroyAllWindows()

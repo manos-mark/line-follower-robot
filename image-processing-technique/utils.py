@@ -11,18 +11,18 @@ def thresholding(frame):
     """
 
     # Pick color limits
-    color_picker = ColorPicker()
-    img, mask, result = color_picker.pick_color(frame)
-    hStack = np.hstack([img, mask, result])
-    cv.imshow('Color Picker', hStack)
+#     color_picker = ColorPicker()
+#     img, mask, result = color_picker.pick_color(frame)
+#     hStack = np.hstack([img, mask, result])
+#     cv.imshow('Color Picker', hStack)
 
     # Convert frame to HSV space
     img_hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
 
     # Create a range using values selected experimental from ColorPicker
-    # lower_color = np.array([0, 0, 0])
-    # upper_color = np.array([179, 255, 79])
-    lower_color, upper_color = color_picker.get_picked_colors()
+    lower_color = np.array([0, 0, 0])
+    upper_color = np.array([179, 255, 79])
+    #lower_color, upper_color = color_picker.get_picked_colors()
 
     # Apply range
     thresholded_frame = cv.inRange(img_hsv, lower_color, upper_color)

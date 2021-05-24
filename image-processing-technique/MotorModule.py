@@ -4,9 +4,9 @@ The motor driver used is the L298n.
 The base package used is the Rpi GPIO
 """
 
-import Rpi.GPIO as GPIO
+import RPi.GPIO as GPIO
 from time import sleep
-GPIO.setmode(GRPIO.BCM)
+GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 
@@ -43,7 +43,7 @@ class Motor:
         elif left_speed < -100: left_speed = -100
         if right_speed > 100: right_speed = 100
         elif right_speed < -100: right_speed = -100
-
+        print(f"speed: {speed} \nleft_speed: {left_speed}\nright_speed: {right_speed}")
         self.pwmA.ChangeDutyCycle(abs(left_speed))
         self.pwmB.ChangeDutyCycle(abs(right_speed))
 
@@ -74,8 +74,9 @@ def main():
     motor.stop(2)
     motor.move(-0.5, 0.2)
     motor.stop(2)
+    GPIO.cleanup()
 
 
 if __name__ == '__main__':
-    motor = Motor(2,3,4,17,22,27)
+    motor = Motor(5, 22, 23, 6, 24, 25)
     main()

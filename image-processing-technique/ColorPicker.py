@@ -3,7 +3,7 @@ import numpy as np
 
 
 class ColorPicker:
-    def __init__(self, width=480, height=280):
+    def __init__(self, width=480, height=240):
         self.width = width
         self.height = height
 
@@ -21,7 +21,7 @@ class ColorPicker:
         cv.createTrackbar("SAT Min", "Color Picker", self.s_min , self.s_max, self.empty)
         cv.createTrackbar("SAT Max", "Color Picker", self.s_max, self.s_max, self.empty)
         cv.createTrackbar("VALUE Min", "Color Picker", self.v_min, self.v_max, self.empty)
-        cv.createTrackbar("VALUE Max", "Color Picker", 79, self.v_max, self.empty)
+        cv.createTrackbar("VALUE Max", "Color Picker", self.v_max, self.v_max, self.empty)
 
     def pick_color(self, img):
         # img = cv.transpose(img)  # Temp debug
@@ -57,8 +57,6 @@ class ColorPicker:
 
 def main():
     cap = cv.VideoCapture(0)
-    cap.set(3, 440)
-    cap.set(4, 280)
 
     frame_counter = 0
     while True:
