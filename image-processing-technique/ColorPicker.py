@@ -56,7 +56,7 @@ class ColorPicker:
 
 
 def main():
-    cap = cv.VideoCapture('vid2.mp4')
+    cap = cv.VideoCapture(0)
     cap.set(3, 440)
     cap.set(4, 280)
 
