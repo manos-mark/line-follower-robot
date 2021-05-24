@@ -87,7 +87,7 @@ if __name__ == '__main__':
         success, frame = cap.read()
         frame = cv.resize(frame, (480, 680))
         # Temp debug
-        frame = cv.transpose(frame)
+        # frame = cv.transpose(frame)
 
         curve = get_line_curve(frame, display=2)
 

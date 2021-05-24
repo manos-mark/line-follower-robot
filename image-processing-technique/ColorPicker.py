@@ -24,10 +24,7 @@ class ColorPicker:
         cv.createTrackbar("VALUE Max", "Color Picker", 79, self.v_max, self.empty)
 
     def pick_color(self, img):
-        # Temp debug
-        img = cv.transpose(img)
-
-        img = cv.transpose(img)  # Temp debug
+        # img = cv.transpose(img)  # Temp debug
         img = cv.resize(img, (self.width, self.height), fx=0, fy=0, interpolation=cv.INTER_CUBIC)
         image_hsv = cv.cvtColor(img, cv.COLOR_BGR2HSV)
 

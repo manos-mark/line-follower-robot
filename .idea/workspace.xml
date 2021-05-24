@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="af51ee33-0001-4c7e-b943-a0541167bab8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image-processing-technique/ColorPicker.py" beforeDir="false" afterPath="$PROJECT_DIR$/image-processing-technique/ColorPicker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/image-processing-technique/LineDetectionModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/image-processing-technique/LineDetectionModule.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -179,7 +180,7 @@
       <workItem from="1621781364190" duration="3198000" />
       <workItem from="1621845239352" duration="11164000" />
       <workItem from="1621857879718" duration="10519000" />
-      <workItem from="1621874270061" duration="645000" />
+      <workItem from="1621874270061" duration="1282000" />
     </task>
     <servers />
   </component>
