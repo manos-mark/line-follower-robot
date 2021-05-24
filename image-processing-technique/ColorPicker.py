@@ -1,64 +1,87 @@
 import cv2 as cv
 import numpy as np
 
-frameWidth = 440
-frameHeight = 280
 
-cap = cv.VideoCapture('vid1.mp4')
-cap.set(3, frameWidth)
-cap.set(4, frameHeight)
+class ColorPicker:
+    def __init__(self, width=480, height=280):
+        self.width = width
+        self.height = height
+
+        self.v_min = self.s_min = self.h_min = 0
+        self.h_max = 179
+        self.v_max = self.s_max = 255
+
+        self.lower_colors = np.array([self.h_min, self.s_min, self.v_min])
+        self.upper_colors = np.array([self.h_max, self.s_max, self.v_max])
+
+        cv.namedWindow("Color Picker")
+        cv.resizeWindow("Color Picker", 840, 640)
+        cv.createTrackbar("HUE Min", "Color Picker", self.h_min, self.h_max, self.empty)
+        cv.createTrackbar("HUE Max", "Color Picker", self.h_max, self.h_max, self.empty)
+        cv.createTrackbar("SAT Min", "Color Picker", self.s_min , self.s_max, self.empty)
+        cv.createTrackbar("SAT Max", "Color Picker", self.s_max, self.s_max, self.empty)
+        cv.createTrackbar("VALUE Min", "Color Picker", self.v_min, self.v_max, self.empty)
+        cv.createTrackbar("VALUE Max", "Color Picker", 79, self.v_max, self.empty)
+
+    def pick_color(self, img):
+        # Temp debug
+        img = cv.transpose(img)
+
+        img = cv.transpose(img)  # Temp debug
+        img = cv.resize(img, (self.width, self.height), fx=0, fy=0, interpolation=cv.INTER_CUBIC)
+        image_hsv = cv.cvtColor(img, cv.COLOR_BGR2HSV)
+
+        self.h_min = cv.getTrackbarPos("HUE Min", "Color Picker")
+        self.h_max = cv.getTrackbarPos("HUE Max", "Color Picker")
+        self.s_min = cv.getTrackbarPos("SAT Min", "Color Picker")
+        self.s_max = cv.getTrackbarPos("SAT Max", "Color Picker")
+        self.v_min = cv.getTrackbarPos("VALUE Min", "Color Picker")
+        self.v_max = cv.getTrackbarPos("VALUE Max", "Color Picker")
+
+        self.lower_colors = np.array([self.h_min, self.s_min, self.v_min])
+        self.upper_colors = np.array([self.h_max, self.s_max, self.v_max])
+
+        mask = cv.inRange(image_hsv, self.lower_colors, self.upper_colors)
+
+        result = cv.bitwise_and(img, img, mask=mask)
+        result = cv.resize(result, (self.width, self.height), fx=0, fy=0, interpolation=cv.INTER_CUBIC)
+
+        mask = cv.cvtColor(mask, cv.COLOR_GRAY2BGR)
+        mask = cv.resize(mask, (self.width, self.height), fx=0, fy=0, interpolation=cv.INTER_CUBIC)
+
+        return img, mask, result
+
+    def get_picked_colors(self):
+        return self.lower_colors, self.upper_colors
+
+    def empty(self, a):
+        pass
 
 
-def empty(a):
-    pass
+def main():
+    cap = cv.VideoCapture('vid2.mp4')
+    cap.set(3, 440)
+    cap.set(4, 280)
+
+    frame_counter = 0
+    while True:
+        frame_counter += 1
+        if cap.get(cv.CAP_PROP_FRAME_COUNT) == frame_counter:
+            cap.set(cv.CAP_PROP_POS_FRAMES, 0)
+            frame_counter = 0
+
+        _, img = cap.read()
+        img, mask, result = color_picker.pick_color(img)
+
+        hStack = np.hstack([img, mask, result])
+        cv.imshow('Color Picker', hStack)
+        if cv.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv.destroyAllWindows()
 
 
-cv.namedWindow("HSV")
-cv.resizeWindow("HSV", 840, 640)
-cv.createTrackbar("HUE Min", "HSV", 0, 179, empty)
-cv.createTrackbar("HUE Max", "HSV", 179, 179, empty)
-cv.createTrackbar("SAT Min", "HSV", 0, 255, empty)
-cv.createTrackbar("SAT Max", "HSV", 255, 255, empty)
-cv.createTrackbar("VALUE Min", "HSV", 0, 255, empty)
-cv.createTrackbar("VALUE Max", "HSV", 255, 255, empty)
-
-frame_counter = 0
-
-while True:
-    frame_counter += 1
-    if cap.get(cv.CAP_PROP_FRAME_COUNT) == frame_counter:
-        cap.set(cv.CAP_PROP_POS_FRAMES, 0)
-        frame_counter = 0
-
-    _, img = cap.read()
-
-    img = cv.resize(img, (frameWidth, frameHeight), fx=0, fy=0, interpolation=cv.INTER_CUBIC)
-
-    imgHsv = cv.cvtColor(img, cv.COLOR_BGR2HSV)
-
-    h_min = cv.getTrackbarPos("HUE Min", "HSV")
-    h_max = cv.getTrackbarPos("HUE Max", "HSV")
-    s_min = cv.getTrackbarPos("SAT Min", "HSV")
-    s_max = cv.getTrackbarPos("SAT Max", "HSV")
-    v_min = cv.getTrackbarPos("VALUE Min", "HSV")
-    v_max = cv.getTrackbarPos("VALUE Max", "HSV")
-    print(h_min)
-
-    lower = np.array([h_min, s_min, v_min])
-    upper = np.array([h_max, s_max, v_max])
-
-    mask = cv.inRange(imgHsv, lower, upper)
-
-    result = cv.bitwise_and(img, img, mask=mask)
-    result = cv.resize(result, (frameWidth, frameHeight), fx=0, fy=0, interpolation=cv.INTER_CUBIC)
-
-    mask = cv.cvtColor(mask, cv.COLOR_GRAY2BGR)
-    mask = cv.resize(mask, (frameWidth, frameHeight), fx=0, fy=0, interpolation=cv.INTER_CUBIC)
-
-    hStack = np.hstack([img, mask, result])
-    cv.imshow('Horizontal Stacking', hStack)
-    if cv.waitKey(1) & 0xFF == ord('q'):
-        break
-
-cap.release()
-cv.destroyAllWindows()
+if __name__ == '__main__':
+    color_picker = ColorPicker()
+    main()
