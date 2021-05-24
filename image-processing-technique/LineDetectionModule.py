@@ -74,7 +74,7 @@ def get_line_curve(image, display=2):
 
 if __name__ == '__main__':
     frame_counter = 0
-    cap = cv.VideoCapture("vid1.mp4")
+    cap = cv.VideoCapture(0)
     initial_trackbar_values = [87, 74, 0, 240]
     utils.initialize_trackbars(initial_trackbar_values)
 
