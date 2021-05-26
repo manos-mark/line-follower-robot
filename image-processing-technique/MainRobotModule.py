@@ -11,7 +11,7 @@ motor = Motor(5, 22, 23, 6, 24, 25)
 
 SPEED = 0.20
 MAX_CURVE_VALUE = 0.3
-SENSITIVITY = 0.1
+SENSITIVITY = 0.01
 
 def main():
     img = get_image()
