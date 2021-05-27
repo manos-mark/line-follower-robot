@@ -16,20 +16,21 @@ SENSITIVITY = 0.01
 
 
 def main():
+    """
     key_control.init()
     
     ####### CONTROL USING KEYBOARD 
-#     if key_control.get_keyboard_input('LEFT'):
-#         motor.move(0.8, 1, 0.1)
-#     elif key_control.get_keyboard_input('RIGHT'):
-#         motor.move(0.6, -1, 0.1)
-#     elif key_control.get_keyboard_input('UP'):
-#         motor.move(0.6, 0, 0.1)
-#     elif key_control.get_keyboard_input('DOWN'):
-#         motor.move(-0.8, 0, 0.1)
-#     else:
-#         motor.stop(0.1)
-
+    if key_control.get_keyboard_input('LEFT'):
+        motor.move(0.8, 1, 0.1)
+    elif key_control.get_keyboard_input('RIGHT'):
+        motor.move(0.6, -1, 0.1)
+    elif key_control.get_keyboard_input('UP'):
+        motor.move(0.6, 0, 0.1)
+    elif key_control.get_keyboard_input('DOWN'):
+        motor.move(-0.8, 0, 0.1)
+    else:
+        motor.stop(0.1)
+    """
     ####### CONTROL USING IMAGE PROCESSING 
     img = get_image()
 

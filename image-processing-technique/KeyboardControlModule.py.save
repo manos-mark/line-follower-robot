@@ -1,12 +1,10 @@
-import os
-
-os.environ["SDL_VIDEODRIVER"] = "dummy"
-
 import pygame
+
 
 def init():
     pygame.init()
-    screen = pygame.display.set_mode((1,1))
+    win = pygame.display.init()
+
 
 def get_keyboard_input(key_name):
     for _ in pygame.event.get():
