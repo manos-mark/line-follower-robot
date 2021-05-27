@@ -10,43 +10,45 @@ import KeyboardControlModule as key_control
 motor = Motor(5, 22, 23, 6, 24, 25)
 ##################################
 
-SPEED = 0.60
+SPEED = 0.6
 MAX_CURVE_VALUE = 0.3
 SENSITIVITY = 0.01
 
 
 def main():
     key_control.init()
+    
+    ####### CONTROL USING KEYBOARD 
+#     if key_control.get_keyboard_input('LEFT'):
+#         motor.move(0.8, 1, 0.1)
+#     elif key_control.get_keyboard_input('RIGHT'):
+#         motor.move(0.6, -1, 0.1)
+#     elif key_control.get_keyboard_input('UP'):
+#         motor.move(0.6, 0, 0.1)
+#     elif key_control.get_keyboard_input('DOWN'):
+#         motor.move(-0.8, 0, 0.1)
+#     else:
+#         motor.stop(0.1)
 
-    if key_control.get_keyboard_input('LEFT'):
-        motor.move(SPEED, 0.3, 0.1)
-    elif key_control.get_keyboard_input('RIGHT'):
-        motor.move(SPEED, -0.3, 0.1)
-    elif key_control.get_keyboard_input('UP'):
-        motor.move(SPEED, 0, 0.1)
-    elif key_control.get_keyboard_input('DOWN'):
-        motor.move(-SPEED, 0, 0.1)
+    ####### CONTROL USING IMAGE PROCESSING 
+    img = get_image()
+
+    curve_value = get_line_curve(img, 2)
+    print(f"curve_value : {curve_value}")
+    if curve_value > MAX_CURVE_VALUE:
+        curve_value = MAX_CURVE_VALUE
+    if curve_value < -MAX_CURVE_VALUE:
+        curve_value = -MAX_CURVE_VALUE
+
+    if curve_value > 0:
+        # SENSITIVITY = 1.7
+        if curve_value < 0.05:
+            curve_value = 0
     else:
-        motor.stop(0.1)
+        if curve_value > -0.08:
+            curve_value = 0
 
-    # img = get_image()
-
-    # curve_value = get_line_curve(img, 2)
-    # print(f"curve_value : {curve_value}")
-    # if curve_value > MAX_CURVE_VALUE:
-    #     curve_value = MAX_CURVE_VALUE
-    # if curve_value < -MAX_CURVE_VALUE:
-    #     curve_value = -MAX_CURVE_VALUE
-
-    # if curve_value > 0:
-    #     # SENSITIVITY = 1.7
-    #     if curve_value < 0.05:
-    #         curve_value = 0
-    # else:
-    #     if curve_value > -0.08:
-    #         curve_value = 0
-
-    # motor.move(SPEED, -curve_value*SENSITIVITY, 0.05)
+    motor.move(SPEED, -curve_value*SENSITIVITY, 0.05)
 
 
 if __name__ == '__main__':
