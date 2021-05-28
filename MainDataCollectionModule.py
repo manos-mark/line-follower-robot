@@ -24,10 +24,10 @@ recording = False
 
 def record(turn):
     if recording:
-        img = wM.getImg(True, size=[240, 120])
-        dcM.saveData(img, turn)
+        img = wM.get_image(True, size=[240, 120])
+        dcM.save_data(img, turn)
     elif not recording:
-        dcM.saveLog()
+        dcM.save_log()
 
 
 while True:
