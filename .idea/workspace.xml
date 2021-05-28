@@ -20,11 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af51ee33-0001-4c7e-b943-a0541167bab8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/image-processing-technique/KeyboardControlModule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/line-following-robot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/line-following-robot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataCollectionModule.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image-processing-technique/MainRobotModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/image-processing-technique/MainRobotModule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainRobotModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainRobotModule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebcamModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/WebcamModule.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +61,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/image-processing-technique" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/image-processing-technique" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.KeyboardControlModule">
+  <component name="RunManager" selected="Python.DataCollectionModule">
     <configuration name="ColorPicker" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="line-following-robot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,7 +79,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image-processing-technique/ColorPicker.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ColorPicker.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DataCollectionModule" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="line-following-robot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataCollectionModule.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -102,7 +123,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image-processing-technique/KeyboardControlModule.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KeyboardControlModule.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -124,7 +145,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image-processing-technique/LineDetectionModule.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LineDetectionModule.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -146,29 +167,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image-processing-technique/MainRobotModule.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="line-following-robot" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image-processing-technique" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image-processing-technique/utils.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MainRobotModule.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -179,11 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.KeyboardControlModule" />
+        <item itemvalue="Python.DataCollectionModule" />
         <item itemvalue="Python.MainRobotModule" />
-        <item itemvalue="Python.ColorPicker" />
         <item itemvalue="Python.LineDetectionModule" />
-        <item itemvalue="Python.utils" />
+        <item itemvalue="Python.KeyboardControlModule" />
+        <item itemvalue="Python.ColorPicker" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +201,8 @@
       <workItem from="1621845239352" duration="11164000" />
       <workItem from="1621857879718" duration="10519000" />
       <workItem from="1621874270061" duration="1470000" />
-      <workItem from="1622130094531" duration="2781000" />
+      <workItem from="1622130094531" duration="4978000" />
+      <workItem from="1622187966524" duration="4174000" />
     </task>
     <servers />
   </component>
@@ -219,6 +219,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1927" y="598" width="798" height="1004" key="#MainRobotModule" timestamp="1622130457430">
@@ -237,26 +238,26 @@
       <screen x="0" y="27" width="1600" height="873" />
     </state>
     <state x="898" y="265" width="593" height="403" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1600.873@0.27.1600.873" timestamp="1621782825345" />
-    <state width="2075" height="627" key="GridCell.Tab.0.bottom" timestamp="1622133138300">
+    <state width="1864" height="627" key="GridCell.Tab.0.bottom" timestamp="1622191963619">
       <screen x="0" y="34" width="3840" height="2126" />
     </state>
     <state width="1554" height="247" key="GridCell.Tab.0.bottom/0.27.1600.873@0.27.1600.873" timestamp="1621870061390" />
-    <state width="2075" height="627" key="GridCell.Tab.0.bottom/0.34.3840.2126@0.34.3840.2126" timestamp="1622133138300" />
-    <state width="2075" height="627" key="GridCell.Tab.0.center" timestamp="1622133138300">
+    <state width="1864" height="627" key="GridCell.Tab.0.bottom/0.34.3840.2126@0.34.3840.2126" timestamp="1622191963619" />
+    <state width="1864" height="627" key="GridCell.Tab.0.center" timestamp="1622191963619">
       <screen x="0" y="34" width="3840" height="2126" />
     </state>
     <state width="1554" height="247" key="GridCell.Tab.0.center/0.27.1600.873@0.27.1600.873" timestamp="1621870061390" />
-    <state width="2075" height="627" key="GridCell.Tab.0.center/0.34.3840.2126@0.34.3840.2126" timestamp="1622133138300" />
-    <state width="2075" height="627" key="GridCell.Tab.0.left" timestamp="1622133138299">
+    <state width="1864" height="627" key="GridCell.Tab.0.center/0.34.3840.2126@0.34.3840.2126" timestamp="1622191963619" />
+    <state width="1864" height="627" key="GridCell.Tab.0.left" timestamp="1622191963619">
       <screen x="0" y="34" width="3840" height="2126" />
     </state>
     <state width="1554" height="247" key="GridCell.Tab.0.left/0.27.1600.873@0.27.1600.873" timestamp="1621870061389" />
-    <state width="2075" height="627" key="GridCell.Tab.0.left/0.34.3840.2126@0.34.3840.2126" timestamp="1622133138299" />
-    <state width="2075" height="627" key="GridCell.Tab.0.right" timestamp="1622133138300">
+    <state width="1864" height="627" key="GridCell.Tab.0.left/0.34.3840.2126@0.34.3840.2126" timestamp="1622191963619" />
+    <state width="1864" height="627" key="GridCell.Tab.0.right" timestamp="1622191963619">
       <screen x="0" y="34" width="3840" height="2126" />
     </state>
     <state width="1554" height="247" key="GridCell.Tab.0.right/0.27.1600.873@0.27.1600.873" timestamp="1621870061390" />
-    <state width="2075" height="627" key="GridCell.Tab.0.right/0.34.3840.2126@0.34.3840.2126" timestamp="1622133138300" />
+    <state width="1864" height="627" key="GridCell.Tab.0.right/0.34.3840.2126@0.34.3840.2126" timestamp="1622191963619" />
     <state width="1554" height="268" key="GridCell.Tab.1.bottom" timestamp="1621867909515">
       <screen x="0" y="27" width="1600" height="873" />
     </state>
@@ -273,18 +274,23 @@
       <screen x="0" y="27" width="1600" height="873" />
     </state>
     <state width="1554" height="268" key="GridCell.Tab.1.right/0.27.1600.873@0.27.1600.873" timestamp="1621867909515" />
-    <state x="317" y="365" width="1271" height="912" key="SettingsEditor" timestamp="1622132515224">
+    <state x="317" y="365" width="1271" height="912" key="SettingsEditor" timestamp="1622191747390">
       <screen x="0" y="34" width="3840" height="2126" />
     </state>
     <state x="289" y="98" width="1022" height="737" key="SettingsEditor/0.27.1600.873@0.27.1600.873" timestamp="1621857847521" />
-    <state x="317" y="365" width="1271" height="912" key="SettingsEditor/0.34.3840.2126@0.34.3840.2126" timestamp="1622132515224" />
+    <state x="317" y="365" width="1271" height="912" key="SettingsEditor/0.34.3840.2126@0.34.3840.2126" timestamp="1622191747390" />
+    <state x="1894" y="34" width="1864" height="2071" key="dock-window-1" timestamp="1622188967688">
+      <screen x="0" y="34" width="3840" height="2126" />
+    </state>
+    <state x="1894" y="34" width="1864" height="2071" key="dock-window-1/0.34.3840.2126@0.34.3840.2126" timestamp="1622188967688" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/line_following_robot$utils.coverage" NAME="utils Coverage Results" MODIFIED="1621867082429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image-processing-technique" />
-    <SUITE FILE_PATH="coverage/line_following_robot$LineDetectionModule.coverage" NAME="LineDetectionModule Coverage Results" MODIFIED="1621869933810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image-processing-technique" />
+    <SUITE FILE_PATH="coverage/line_following_robot$LineDetectionModule.coverage" NAME="LineDetectionModule Coverage Results" MODIFIED="1622142693258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image-processing-technique" />
     <SUITE FILE_PATH="coverage/line_following_robot$MotorModule.coverage" NAME="MotorModule Coverage Results" MODIFIED="1621862659811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image-processing-technique" />
-    <SUITE FILE_PATH="coverage/line_following_robot$KeyboardControlModule.coverage" NAME="KeyboardControlModule Coverage Results" MODIFIED="1622133138285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image-processing-technique" />
-    <SUITE FILE_PATH="coverage/line_following_robot$MainRobotModule.coverage" NAME="MainRobotModule Coverage Results" MODIFIED="1622130494646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image-processing-technique" />
+    <SUITE FILE_PATH="coverage/line_following_robot$KeyboardControlModule.coverage" NAME="KeyboardControlModule Coverage Results" MODIFIED="1622142612790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image-processing-technique" />
+    <SUITE FILE_PATH="coverage/line_following_robot$DataCollectionModule.coverage" NAME="DataCollectionModule Coverage Results" MODIFIED="1622191963609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/line_following_robot$MainRobotModule.coverage" NAME="MainRobotModule Coverage Results" MODIFIED="1622189313723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image-processing-technique" />
     <SUITE FILE_PATH="coverage/line_following_robot$ColorPicker.coverage" NAME="ColorPicker Coverage Results" MODIFIED="1622130473654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image-processing-technique" />
   </component>
 </project>

@@ -1,3 +1,10 @@
+"""
+-This module gets an image through the webcam
+using the opencv package
+-Display can be turned on or off
+-Image size can be defined
+"""
+
 import cv2 as cv
 
 cap = cv.VideoCapture(0)

@@ -11,13 +11,18 @@ from gpiozero import LineSensor
 motor = Motor(5, 22, 23, 6, 24, 25)
 ##################################
 
-MAX_SPEED = 0.8
+modes = ('KEYBOARD_CONTROL', 'LINE_FOLLOWING', 'CUSTOM_IMAGE_PROCESSING', 'DEEP_IMAGE_PROCESSING')
+
+MAX_SPEED = 0.7
 MIN_SPEED = 0.6
 RIGHT_TURN = -1
 LEFT_TURN = 1
+
+DELAY = 0.1
+
 MAX_CURVE_VALUE = 0.3
 SENSITIVITY = 0.01
-modes = ('KEYBOARD_CONTROL', 'LINE_FOLLOWING', 'CUSTOM_IMAGE_PROCESSING', 'DEEP_IMAGE_PROCESSING')
+
 
 
 def main(mode='KEYBOARD_CONTROL'):
@@ -27,13 +32,13 @@ def main(mode='KEYBOARD_CONTROL'):
     if mode == modes[0]:
         key_control.init()
         if key_control.get_keyboard_input('LEFT'):
-            motor.move(MAX_SPEED, LEFT_TURN, 0.1)
+            motor.move(MIN_SPEED, LEFT_TURN, DELAY)
         elif key_control.get_keyboard_input('RIGHT'):
-            motor.move(MIN_SPEED, RIGHT_TURN, 0.1)
+            motor.move(MIN_SPEED, RIGHT_TURN, DELAY)
         elif key_control.get_keyboard_input('UP'):
-            motor.move(MIN_SPEED, 0, 0.1)
+            motor.move(MAX_SPEED, 0, DELAY)
         elif key_control.get_keyboard_input('DOWN'):
-            motor.move(-MAX_SPEED, 0, 0.1)
+            motor.move(-MAX_SPEED, 0, DELAY)
         else:
             motor.stop(0.1)
 
@@ -46,13 +51,13 @@ def main(mode='KEYBOARD_CONTROL'):
 
         ## Go Forward
         if left_detect == 0 and right_detect == 0:
-            motor.move(MAX_SPEED, 0, 0.1)
+            motor.move(MAX_SPEED, 0, DELAY)
         ## Turn Left
         elif left_detect == 0 and right_detect == 1:
-            motor.move(MIN_SPEED, LEFT_TURN, 0.1)
+            motor.move(MIN_SPEED, LEFT_TURN, DELAY)
         ## Turn Right
         elif left_detect == 1 and right_detect == 0:
-            motor.move(MIN_SPEED, RIGHT_TURN, 0.1)
+            motor.move(MIN_SPEED, RIGHT_TURN, DELAY)
 
         ## Stop
         if left_detect == 1 and right_detect == 1:
