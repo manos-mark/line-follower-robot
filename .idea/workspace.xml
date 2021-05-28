@@ -20,10 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af51ee33-0001-4c7e-b943-a0541167bab8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DataCollectionModule.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MainDataCollectionModule.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainRobotModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainRobotModule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebcamModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/WebcamModule.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,29 +63,7 @@
       <recent name="$PROJECT_DIR$/image-processing-technique" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.DataCollectionModule">
-    <configuration name="ColorPicker" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="line-following-robot" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image-processing-technique" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ColorPicker.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.MainDataCollectionModule">
     <configuration name="DataCollectionModule" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="line-following-robot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -154,6 +130,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="MainDataCollectionModule" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="line-following-robot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MainDataCollectionModule.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="MainRobotModule" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="line-following-robot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -178,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.MainDataCollectionModule" />
         <item itemvalue="Python.DataCollectionModule" />
         <item itemvalue="Python.MainRobotModule" />
         <item itemvalue="Python.LineDetectionModule" />
         <item itemvalue="Python.KeyboardControlModule" />
-        <item itemvalue="Python.ColorPicker" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +200,7 @@
       <workItem from="1621857879718" duration="10519000" />
       <workItem from="1621874270061" duration="1470000" />
       <workItem from="1622130094531" duration="4978000" />
-      <workItem from="1622187966524" duration="4174000" />
+      <workItem from="1622187966524" duration="5894000" />
     </task>
     <servers />
   </component>
@@ -291,6 +289,7 @@
     <SUITE FILE_PATH="coverage/line_following_robot$KeyboardControlModule.coverage" NAME="KeyboardControlModule Coverage Results" MODIFIED="1622142612790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image-processing-technique" />
     <SUITE FILE_PATH="coverage/line_following_robot$DataCollectionModule.coverage" NAME="DataCollectionModule Coverage Results" MODIFIED="1622191963609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/line_following_robot$MainRobotModule.coverage" NAME="MainRobotModule Coverage Results" MODIFIED="1622189313723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image-processing-technique" />
+    <SUITE FILE_PATH="coverage/line_following_robot$MainDataCollectionModule.coverage" NAME="MainDataCollectionModule Coverage Results" MODIFIED="1622194002866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/line_following_robot$ColorPicker.coverage" NAME="ColorPicker Coverage Results" MODIFIED="1622130473654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image-processing-technique" />
   </component>
 </project>
