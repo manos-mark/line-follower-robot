@@ -45,10 +45,23 @@ def main(mode='KEYBOARD_CONTROL'):
     ################################################################################
     ##################### CONTROL USING LINE FOLLOWING SENSORS #####################
     elif mode == modes[1]:
-        left_sensor = LineSensor(17)
-        right_sensor = LineSensor(27)
-        left_detect = int(left_sensor.value)
-        right_detect = int(right_sensor.value)
+        sensor1 = LineSensor(18) # terma aristera
+        sensor2 = LineSensor(17) # aristera
+        sensor3 = LineSensor(20)   # kentriko
+        sensor4 = LineSensor(27) # deksia
+        sensor5 = LineSensor(21)   # terma deksia
+
+        sensor1 = int(sensor1.value)
+        sensor2 = int(sensor2.value)
+        sensor3 = int(sensor3.value)
+        sensor4 = int(sensor4.value)
+        sensor5 = int(sensor5.value)
+
+        print(f"sensor1: {sensor1}\n")
+        print(f"sensor2: {sensor2}\n")
+        print(f"sensor3: {sensor3}\n")
+        print(f"sensor4: {sensor4}\n")
+        print(f"sensor5: {sensor5}\n\n\n") 
 
         ## Go Forward
         if left_detect == 0 and right_detect == 0:
