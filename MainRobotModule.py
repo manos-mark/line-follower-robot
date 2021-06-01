@@ -1,9 +1,9 @@
 from MotorModule import Motor
-from LineDetectionModule import get_line_curve
+# from image_processing.LineDetectionModule import get_line_curve
 from WebcamModule import get_image
 import cv2 as cv
 # import RPi.GPIO as GPIO
-import KeyboardControlModule as key_control
+import computer_vision.KeyboardControlModule as key_control
 from gpiozero import LineSensor
 
 
@@ -27,8 +27,8 @@ SENSITIVITY = 0.01
 
 def main(mode='KEYBOARD_CONTROL'):
 
-
-    ####### CONTROL USING KEYBOARD
+    ################################################################################
+    ############################ CONTROL USING KEYBOARD ############################
     if mode == modes[0]:
         key_control.init()
         if key_control.get_keyboard_input('LEFT'):
@@ -42,8 +42,10 @@ def main(mode='KEYBOARD_CONTROL'):
         else:
             motor.stop(0.1)
 
-    ####### CONTROL USING LINE FOLLOWING SENSORS
-    if mode == modes[1]:
+
+    ################################################################################
+    ##################### CONTROL USING LINE FOLLOWING SENSORS #####################
+    elif mode == modes[1]:
         left_sensor = LineSensor(17)
         right_sensor = LineSensor(27)
         left_detect = int(left_sensor.value)
@@ -64,7 +66,8 @@ def main(mode='KEYBOARD_CONTROL'):
             motor.stop()
 
 
-    ####### CONTROL USING CUSTOM IMAGE PROCESSING
+    #################################################################################
+    ##################### CONTROL USING CUSTOM IMAGE PROCESSING #####################
     # elif mode == modes[2]:
     #     img = get_image()
     #
@@ -85,8 +88,32 @@ def main(mode='KEYBOARD_CONTROL'):
     #
     #     motor.move(SPEED, -curve_value*SENSITIVITY, 0.05)
 
-    ####### CONTROL USING DEEP IMAGE PROCESSING
-    # elif mode == modes[3]:
+
+    ###############################################################################
+    ##################### CONTROL USING DEEP IMAGE PROCESSING #####################
+    elif mode == modes[3]:
+        model = load_model('/home/')
+
+        while True:
+            img = get_image(True, size=[240,120])
+            img = np.asarray(img)
+            img = preprocess(img)
+            img = np.array([img])
+
+            steering = float(model.predict(img))
+            
+            if steering != 0:
+                motor.move(MIN_SPEED, -steering)
+            else:
+                motor.move(MAX_SPEED, -steering)
+
+def preprocess(img):
+    img = img[54:120, :, :]
+    img = cv.cvtColor(img, cv.COLOR_RGB2YUV)
+    img = cv.GaussianBlur(img, (3,3), 0)
+    img = cv.resize(img, (200, 66))
+    img = img / 255
+    return img
 
 
 if __name__ == '__main__':

@@ -22,13 +22,13 @@ steering_list = []
 
 
 # GET CURRENT DIRECTORY PATH
-my_directory = os.path.join(os.getcwd(), 'DataCollected')
+my_directory = os.path.join(os.getcwd(), 'collected_data')
 # print(myDirectory)
 
 # CREATE A NEW FOLDER BASED ON THE PREVIOUS FOLDER COUNT
-while os.path.exists(os.path.join(my_directory, f'IMG{str(count_folder)}')):
+while os.path.exists(os.path.join(my_directory, f'image{str(count_folder)}')):
     count_folder += 1
-new_path = my_directory + "/IMG" + str(count_folder)
+new_path = my_directory + "/image" + str(count_folder)
 os.makedirs(new_path)
 
 
