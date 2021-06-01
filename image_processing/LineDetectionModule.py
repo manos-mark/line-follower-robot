@@ -1,11 +1,11 @@
 import cv2 as cv
 import numpy as np
-import utils
+import image_processing.utils as utils
 
 curve_list = []
 AVERAGE_VALUE = 10
 
-initial_trackbar_values = [177, 74, 153, 240]
+initial_trackbar_values = [130, 74, 153, 240]
 utils.initialize_trackbars(initial_trackbar_values)
 
 def get_line_curve(image, display=2):

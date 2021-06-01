@@ -1,6 +1,6 @@
 import cv2 as cv
 import numpy as np
-from ColorPicker import ColorPicker
+from image_processing.ColorPicker import ColorPicker
 
 
 def thresholding(frame):

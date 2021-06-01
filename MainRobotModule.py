@@ -1,5 +1,5 @@
 from MotorModule import Motor
-# from image_processing.LineDetectionModule import get_line_curve
+from image_processing.LineDetectionModule import get_line_curve
 from WebcamModule import get_image
 import cv2 as cv
 # import RPi.GPIO as GPIO
@@ -13,8 +13,8 @@ motor = Motor(5, 22, 23, 6, 24, 25)
 
 modes = ('KEYBOARD_CONTROL', 'LINE_FOLLOWING', 'CUSTOM_IMAGE_PROCESSING', 'DEEP_IMAGE_PROCESSING')
 
-MAX_SPEED = 0.7
-MIN_SPEED = 0.6
+MAX_SPEED = 0.6
+MIN_SPEED = 0.5
 RIGHT_TURN = -1
 LEFT_TURN = 1
 
@@ -68,25 +68,25 @@ def main(mode='KEYBOARD_CONTROL'):
 
     #################################################################################
     ##################### CONTROL USING CUSTOM IMAGE PROCESSING #####################
-    # elif mode == modes[2]:
-    #     img = get_image()
-    #
-    #     curve_value = get_line_curve(img, 2)
-    #     print(f"curve_value : {curve_value}")
-    #     if curve_value > MAX_CURVE_VALUE:
-    #         curve_value = MAX_CURVE_VALUE
-    #     if curve_value < -MAX_CURVE_VALUE:
-    #         curve_value = -MAX_CURVE_VALUE
-    #
-    #     if curve_value > 0:
-    #         # SENSITIVITY = 1.7
-    #         if curve_value < 0.05:
-    #             curve_value = 0
-    #     else:
-    #         if curve_value > -0.08:
-    #             curve_value = 0
-    #
-    #     motor.move(SPEED, -curve_value*SENSITIVITY, 0.05)
+    elif mode == modes[2]:
+        img = get_image()
+    
+        curve_value = get_line_curve(img, 2)
+        print(f"curve_value : {curve_value}")
+        if curve_value > MAX_CURVE_VALUE:
+            curve_value = MAX_CURVE_VALUE
+        if curve_value < -MAX_CURVE_VALUE:
+            curve_value = -MAX_CURVE_VALUE
+    
+        if curve_value > 0:
+            # SENSITIVITY = 1.7
+            if curve_value < 0.05:
+                curve_value = 0
+        else:
+            if curve_value > -0.08:
+                curve_value = 0
+    
+        motor.move(MAX_SPEED, -curve_value*SENSITIVITY, 0.05)
 
 
     ###############################################################################
@@ -119,7 +119,7 @@ def preprocess(img):
 if __name__ == '__main__':
 
     while True:
-        main()
+        main('LINE_FOLLOWING')
 
         if cv.waitKey(1) & 0xFF == ord('q'):
             GPIO.cleanup()

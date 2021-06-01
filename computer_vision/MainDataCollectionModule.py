@@ -12,8 +12,8 @@ maxThrottle = 0.25
 motor = mM.Motor(5, 22, 23, 6, 24, 25)
 ##################################
 
-MAX_SPEED = 0.7
-MIN_SPEED = 0.6
+MAX_SPEED = 0.8
+MIN_SPEED = 0.7
 RIGHT_TURN = -1
 LEFT_TURN = 1
 
