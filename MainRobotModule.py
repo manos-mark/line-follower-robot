@@ -13,11 +13,11 @@ motor = Motor(5, 22, 23, 6, 24, 25)
 
 modes = ('KEYBOARD_CONTROL', 'LINE_FOLLOWING', 'CUSTOM_IMAGE_PROCESSING', 'DEEP_IMAGE_PROCESSING')
 
-SPEED = 50
+SPEED = 0.5
 RIGHT_TURN = -1
 LEFT_TURN = 1
 
-DELAY = 0.2
+DELAY = 0.1
 
 MAX_CURVE_VALUE = 0.3
 SENSITIVITY = 0.01
@@ -31,13 +31,13 @@ def main(mode='KEYBOARD_CONTROL'):
     if mode == modes[0]:
         key_control.init()
         if key_control.get_keyboard_input('LEFT'):
-            motor.turn_left(SPEED, DELAY)
+            motor.move(SPEED, LEFT_TURN, DELAY)
         elif key_control.get_keyboard_input('RIGHT'):
-            motor.turn_right(SPEED, DELAY)
+            motor.move(SPEED, RIGHT_TURN, DELAY)
         elif key_control.get_keyboard_input('UP'):
-            motor.forward(SPEED, DELAY)
+            motor.move(SPEED, 0, DELAY)
         elif key_control.get_keyboard_input('DOWN'):
-            motor.backward(SPEED, DELAY)
+            motor.move(-SPEED, 0, DELAY)
         else:
             motor.stop(0.1)
 
@@ -65,13 +65,13 @@ def main(mode='KEYBOARD_CONTROL'):
 
         ## Go Forward
         if left_detect == 0 and right_detect == 0:
-            motor.forward(SPEED, DELAY)
+            motor.move(SPEED, 0, DELAY)
         ## Turn Left
         elif left_detect == 0 and right_detect == 1:
-            motor.turn_left(SPEED, DELAY)
+            motor.move(SPEED, LEFT_TURN, DELAY)
         ## Turn Right
         elif left_detect == 1 and right_detect == 0:
-            motor.turn_right(SPEED, DELAY)
+            motor.move(SPEED, RIGHT_TURN, DELAY)
 
         ## Stop
         if left_detect == 1 and right_detect == 1:
@@ -112,9 +112,9 @@ def main(mode='KEYBOARD_CONTROL'):
         steering = float(model.predict(img))
         
         if steering != 0:
-            motor.move(MIN_SPEED, -steering)
+            motor.move(SPEED, -steering)
         else:
-            motor.move(MAX_SPEED, -steering)
+            motor.move(SPEED, -steering)
 
 def preprocess(img):
     img = img[54:120, :, :]
