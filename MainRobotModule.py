@@ -66,17 +66,38 @@ def main(mode='KEYBOARD_CONTROL'):
         print(f"sensor4: {sensors[3]}\n")
         print(f"sensor5: {sensors[4]}\n") 
 
-        if((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 1 )): error = 4
-        elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 1 ) and (sensors[4]== 1 )): error = 3
-        elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 1 ) and (sensors[4]== 0 )): error = 2
-        elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 1 ) and (sensors[3]== 1 ) and (sensors[4]== 0 )): error = 1
-        elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 1 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): error = 0
-        elif((sensors[0]== 0 ) and (sensors[1]== 1 ) and (sensors[2]== 1 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): error = -1
-        elif((sensors[0]== 0 ) and (sensors[1]== 1 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): error = -2
-        elif((sensors[0]== 1 ) and (sensors[1]== 1 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): error = -3
-        elif((sensors[0]== 1 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): error = -4
+        # read line sensors values 
+        # Sensor Array 	Error Value
+        #     0 0 0 0 1	 4              
+        #     0 0 0 1 1	 3              
+        #     0 0 0 1 0	 2              
+        #     0 0 1 1 0	 1              
+        #     0 0 1 0 0	 0              
+        #     0 1 1 0 0	-1              
+        #     0 1 0 0 0	-2              
+        #     1 1 0 0 0	-3              
+        #     1 0 0 0 0	-4              
+        #     1 1 1 1 1  0 Robot found continuous line : STOPPED
+        #     0 0 0 0 0  0 Robot found no line: turn 180o
+
+        STOPPED = 0
+        FOLLOWING_LINE = 1
+        NO_LINE = 2
+        KP = 10
+        if((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 1 )): mode = FOLLOWING_LINE; error = 4
+        elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 1 ) and (sensors[4]== 1 )): mode = FOLLOWING_LINE; error = 3
+        elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 1 ) and (sensors[4]== 0 )): mode = FOLLOWING_LINE; error = 2
+        elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 1 ) and (sensors[3]== 1 ) and (sensors[4]== 0 )): mode = FOLLOWING_LINE; error = 1
+        elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 1 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): mode = FOLLOWING_LINE; error = 0
+        elif((sensors[0]== 0 ) and (sensors[1]== 1 ) and (sensors[2]== 1 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): mode = FOLLOWING_LINE; error = -1
+        elif((sensors[0]== 0 ) and (sensors[1]== 1 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): mode = FOLLOWING_LINE; error = -2
+        elif((sensors[0]== 1 ) and (sensors[1]== 1 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): mode = FOLLOWING_LINE; error = -3
+        elif((sensors[0]== 1 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): mode = FOLLOWING_LINE; error = -4
+        elif((sensors[0]== 1 ) and (sensors[1]== 1 ) and (sensors[2]== 1 ) and (sensors[3]== 1 ) and (sensors[4]== 1 )): mode = STOPPED; error = 0
+        elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): mode = NO_LINE; error = 0
 
         print(f"Error: {error}\n\n")
+        motor.move(SPEED, 0, error, DELAY)
 
         # ## Go Forward
         # if left_detect == 0 and right_detect == 0:
