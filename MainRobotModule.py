@@ -51,31 +51,45 @@ def main(mode='KEYBOARD_CONTROL'):
         sensor4 = LineSensor(27) # deksia
         sensor5 = LineSensor(21)   # terma deksia
 
-        sensor1 = int(sensor1.value)
-        sensor2 = int(sensor2.value)
-        sensor3 = int(sensor3.value)
-        sensor4 = int(sensor4.value)
-        sensor5 = int(sensor5.value)
+        sensors[5] = [0, 0, 0, 0, 0]
 
-        print(f"sensor1: {sensor1}\n")
-        print(f"sensor2: {sensor2}\n")
-        print(f"sensor3: {sensor3}\n")
-        print(f"sensor4: {sensor4}\n")
-        print(f"sensor5: {sensor5}\n\n\n") 
+        sensors[0] = int(sensor1.value)
+        sensors[1] = int(sensor2.value)
+        sensors[2] = int(sensor3.value)
+        sensors[3] = int(sensor4.value)
+        sensors[4] = int(sensor5.value)
 
-        ## Go Forward
-        if left_detect == 0 and right_detect == 0:
-            motor.move(SPEED, 0, DELAY)
-        ## Turn Left
-        elif left_detect == 0 and right_detect == 1:
-            motor.move(SPEED, LEFT_TURN, DELAY)
-        ## Turn Right
-        elif left_detect == 1 and right_detect == 0:
-            motor.move(SPEED, RIGHT_TURN, DELAY)
+        print(f"sensor1: {sensors[0]}\n")
+        print(f"sensor2: {sensors[1]}\n")
+        print(f"sensor3: {sensors[2]}\n")
+        print(f"sensor4: {sensors[3]}\n")
+        print(f"sensor5: {sensors[4]}\n\n\n") 
 
-        ## Stop
-        if left_detect == 1 and right_detect == 1:
-            motor.stop()
+        if((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 1 )): error = 4
+        elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 1 ) and (sensors[4]== 1 )): error = 3
+        elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 1 ) and (sensors[4]== 0 )): error = 2
+        elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 1 ) and (sensors[3]== 1 ) and (sensors[4]== 0 )): error = 1
+        elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 1 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): error = 0
+        elif((sensors[0]== 0 ) and (sensors[1]== 1 ) and (sensors[2]== 1 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): error = -1
+        elif((sensors[0]== 0 ) and (sensors[1]== 1 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): error = -2
+        elif((sensors[0]== 1 ) and (sensors[1]== 1 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): error = -3
+        elif((sensors[0]== 1 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): error = -4
+
+        print(f"Error: {error}\n")
+
+        # ## Go Forward
+        # if left_detect == 0 and right_detect == 0:
+        #     motor.move(SPEED, 0, DELAY)
+        # ## Turn Left
+        # elif left_detect == 0 and right_detect == 1:
+        #     motor.move(SPEED, LEFT_TURN, DELAY)
+        # ## Turn Right
+        # elif left_detect == 1 and right_detect == 0:
+        #     motor.move(SPEED, RIGHT_TURN, DELAY)
+
+        # ## Stop
+        # if left_detect == 1 and right_detect == 1:
+        #     motor.stop()
 
 
     #################################################################################
