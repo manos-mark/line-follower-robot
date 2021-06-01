@@ -13,7 +13,7 @@ motor = Motor(5, 22, 23, 6, 24, 25)
 
 modes = ('KEYBOARD_CONTROL', 'LINE_FOLLOWING', 'CUSTOM_IMAGE_PROCESSING', 'DEEP_IMAGE_PROCESSING')
 
-SPEED = 0.5
+SPEED = 0.7
 RIGHT_TURN = -1
 LEFT_TURN = 1
 
@@ -165,7 +165,7 @@ if __name__ == '__main__':
 #     model = load_model('/home/')
     
     while True:
-        main('LINE_FOLLOWING')
+        main()
 
         if cv.waitKey(1) & 0xFF == ord('q'):
             GPIO.cleanup()

@@ -35,9 +35,23 @@ class Motor:
     def move(self, speed=0.5, turn=0, error=0, t=0):
         speed *= 100
         turn *= 100
-        left_speed = speed - turn
-        right_speed = speed + turn
         
+        left_speed = 0
+        right_speed = 0
+        
+        if turn !=0:
+            left_speed = speed - turn
+            right_speed = speed + turn
+            
+        if error == 0:
+            left_speed = right_speed = speed
+        elif error < 0:
+            left_speed = speed - speed*0.5*abs(error)
+            right_speed = speed + speed*0.5*abs(error)
+        elif error > 0:
+            left_speed = speed + speed*0.5*abs(error)
+            right_speed = speed - speed*0.5*abs(error)
+            
 
         if left_speed > 100: left_speed = 100
         elif left_speed < -100: left_speed = -100
@@ -45,38 +59,38 @@ class Motor:
         elif right_speed < -100: right_speed = -100
         
         print(f"speed: {speed} \nleft_speed: {left_speed}\nright_speed: {right_speed}\n")
-
+        
         if left_speed < 0 and right_speed < 0:
             GPIO.output(self.right_forward, GPIO.LOW)
             GPIO.output(self.right_backward, GPIO.HIGH)
             GPIO.output(self.left_forward, GPIO.LOW)
             GPIO.output(self.left_backward, GPIO.HIGH)
-            self.pwmA.ChangeDutyCycle(abs(speed))
-            self.pwmB.ChangeDutyCycle(abs(speed))
+            self.pwmA.ChangeDutyCycle(abs(left_speed))
+            self.pwmB.ChangeDutyCycle(abs(right_speed))
             
         if left_speed > right_speed:
             GPIO.output(self.right_forward, GPIO.LOW)
             GPIO.output(self.right_backward, GPIO.HIGH)
             GPIO.output(self.left_forward, GPIO.HIGH)
             GPIO.output(self.left_backward, GPIO.LOW)
-            self.pwmA.ChangeDutyCycle(abs(speed))
-            self.pwmB.ChangeDutyCycle(abs(speed-0.2*speed))
+            self.pwmA.ChangeDutyCycle(abs(left_speed))
+            self.pwmB.ChangeDutyCycle(abs(right_speed))
             
         elif right_speed > left_speed:
             GPIO.output(self.right_forward, GPIO.HIGH)
             GPIO.output(self.right_backward, GPIO.LOW)
             GPIO.output(self.left_forward, GPIO.LOW)
             GPIO.output(self.left_backward, GPIO.HIGH)
-            self.pwmA.ChangeDutyCycle(abs(speed-0.2*speed))
-            self.pwmB.ChangeDutyCycle(abs(speed))
+            self.pwmA.ChangeDutyCycle(abs(left_speed))
+            self.pwmB.ChangeDutyCycle(abs(right_speed))
             
         elif left_speed == right_speed and left_speed > 0 and right_speed > 0:
             GPIO.output(self.right_forward, GPIO.HIGH)
             GPIO.output(self.right_backward, GPIO.LOW)
             GPIO.output(self.left_forward, GPIO.HIGH)
             GPIO.output(self.left_backward, GPIO.LOW)
-            self.pwmA.ChangeDutyCycle(abs(speed))
-            self.pwmB.ChangeDutyCycle(abs(speed))
+            self.pwmA.ChangeDutyCycle(abs(left_speed))
+            self.pwmB.ChangeDutyCycle(abs(right_speed))
 
         # if speed > 100: speed = 100
         # elif speed < -100: speed = -100
