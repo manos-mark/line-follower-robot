@@ -51,7 +51,8 @@ def main(mode='KEYBOARD_CONTROL'):
         sensor4 = LineSensor(27) # deksia
         sensor5 = LineSensor(21)   # terma deksia
 
-        sensors[5] = [0, 0, 0, 0, 0]
+        sensors = [0, 0, 0, 0, 0]
+        error = 0
 
         sensors[0] = int(sensor1.value)
         sensors[1] = int(sensor2.value)
@@ -63,7 +64,7 @@ def main(mode='KEYBOARD_CONTROL'):
         print(f"sensor2: {sensors[1]}\n")
         print(f"sensor3: {sensors[2]}\n")
         print(f"sensor4: {sensors[3]}\n")
-        print(f"sensor5: {sensors[4]}\n\n\n") 
+        print(f"sensor5: {sensors[4]}\n") 
 
         if((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 1 )): error = 4
         elif((sensors[0]== 0 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 1 ) and (sensors[4]== 1 )): error = 3
@@ -75,7 +76,7 @@ def main(mode='KEYBOARD_CONTROL'):
         elif((sensors[0]== 1 ) and (sensors[1]== 1 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): error = -3
         elif((sensors[0]== 1 ) and (sensors[1]== 0 ) and (sensors[2]== 0 ) and (sensors[3]== 0 ) and (sensors[4]== 0 )): error = -4
 
-        print(f"Error: {error}\n")
+        print(f"Error: {error}\n\n")
 
         # ## Go Forward
         # if left_detect == 0 and right_detect == 0:
