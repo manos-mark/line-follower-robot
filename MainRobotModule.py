@@ -13,12 +13,11 @@ motor = Motor(5, 22, 23, 6, 24, 25)
 
 modes = ('KEYBOARD_CONTROL', 'LINE_FOLLOWING', 'CUSTOM_IMAGE_PROCESSING', 'DEEP_IMAGE_PROCESSING')
 
-MAX_SPEED = 0.6
-MIN_SPEED = 0.5
+SPEED = 50
 RIGHT_TURN = -1
 LEFT_TURN = 1
 
-DELAY = 0.1
+DELAY = 0.2
 
 MAX_CURVE_VALUE = 0.3
 SENSITIVITY = 0.01
@@ -32,13 +31,13 @@ def main(mode='KEYBOARD_CONTROL'):
     if mode == modes[0]:
         key_control.init()
         if key_control.get_keyboard_input('LEFT'):
-            motor.move(MIN_SPEED, LEFT_TURN, DELAY)
+            motor.turn_left(SPEED, DELAY)
         elif key_control.get_keyboard_input('RIGHT'):
-            motor.move(MIN_SPEED, RIGHT_TURN, DELAY)
+            motor.turn_right(SPEED, DELAY)
         elif key_control.get_keyboard_input('UP'):
-            motor.move(MAX_SPEED, 0, DELAY)
+            motor.forward(SPEED, DELAY)
         elif key_control.get_keyboard_input('DOWN'):
-            motor.move(-MAX_SPEED, 0, DELAY)
+            motor.backward(SPEED, DELAY)
         else:
             motor.stop(0.1)
 
@@ -53,13 +52,13 @@ def main(mode='KEYBOARD_CONTROL'):
 
         ## Go Forward
         if left_detect == 0 and right_detect == 0:
-            motor.move(MAX_SPEED, 0, DELAY)
+            motor.forward(SPEED, DELAY)
         ## Turn Left
         elif left_detect == 0 and right_detect == 1:
-            motor.move(MIN_SPEED, LEFT_TURN, DELAY)
+            motor.turn_left(SPEED, DELAY)
         ## Turn Right
         elif left_detect == 1 and right_detect == 0:
-            motor.move(MIN_SPEED, RIGHT_TURN, DELAY)
+            motor.turn_right(SPEED, DELAY)
 
         ## Stop
         if left_detect == 1 and right_detect == 1:
@@ -86,26 +85,23 @@ def main(mode='KEYBOARD_CONTROL'):
             if curve_value > -0.08:
                 curve_value = 0
     
-        motor.move(MAX_SPEED, -curve_value*SENSITIVITY, 0.05)
+        motor.move(SPEED, -curve_value*SENSITIVITY, 0.05)
 
 
     ###############################################################################
     ##################### CONTROL USING DEEP IMAGE PROCESSING #####################
     elif mode == modes[3]:
-        model = load_model('/home/')
+        img = get_image(True, size=[240,120])
+        img = np.asarray(img)
+        img = preprocess(img)
+        img = np.array([img])
 
-        while True:
-            img = get_image(True, size=[240,120])
-            img = np.asarray(img)
-            img = preprocess(img)
-            img = np.array([img])
-
-            steering = float(model.predict(img))
-            
-            if steering != 0:
-                motor.move(MIN_SPEED, -steering)
-            else:
-                motor.move(MAX_SPEED, -steering)
+        steering = float(model.predict(img))
+        
+        if steering != 0:
+            motor.move(MIN_SPEED, -steering)
+        else:
+            motor.move(MAX_SPEED, -steering)
 
 def preprocess(img):
     img = img[54:120, :, :]
@@ -117,7 +113,8 @@ def preprocess(img):
 
 
 if __name__ == '__main__':
-
+#     model = load_model('/home/')
+    
     while True:
         main('LINE_FOLLOWING')
 
